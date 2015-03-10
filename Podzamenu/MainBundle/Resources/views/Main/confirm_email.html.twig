@@ -1,0 +1,9 @@
+{% extends 'PodzamenuMainBundle::layout.html.twig' %}
+
+{% block body %}
+    {% if status == "ok" %}
+        Ваш email подтверджен, перейдите на <a href="/">Стартовую страницу</a> страницу
+    {% else %}
+        Ошибка подтверждения email адреса, такого адреса нет в программе или вышло время на подтвержение
+    {% endif %}
+{% endblock %}

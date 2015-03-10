@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    <title>Podzamenu</title>
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('/css/style.css')~"?"~random() }}" type="text/css" media="all"/>
+{% endblock %}
+
+{% block header %}
+    {% render "PodzamenuMainBundle:Element:menu" %}
+{% endblock %}
+
+{% block body %}
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'PodzamenuMainBundle::layout.html.twig' %}
+
+{% block body %}
+
+<div class="start_page_1">
+    <form action="{{ path('search') }}" method="post">
+        <input type="text" name="search_text" value="{% if search is defined %}{{ search }}{% endif %}" style="width: 500px;"/>
+        <input type="submit" value="Найти!" style="width: 200px;">
+    </form>
+
+    {% if users is defined %}
+        {% for value in users %}
+            <div style="margin-top: 30px;">
+                <div style="margin-bottom: 5px;">
+                    {% if value.public == 1 %}
+                        <a href="/profile/{{ value.id }}" style="color: blue; font-weight: bold;">{{ value.username }}</a>
+                    {% else %}
+                        <span style="color: green; font-weight: bold;">{{ value.username }}</span>
+                    {% endif %}
+                </div>
+
+                {% if value.posts|length > 0 %}
+                    {% for value2 in value.posts %}
+                        <div style="margin-bottom: 20px;">
+                            <span>{{ value2.date|date("d.m.Y") }}</span><br/>
+                            <span>{{ value2.label|capitalize }}</span><br/>
+                            <p>{{ value2.message }}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+{% endblock %}

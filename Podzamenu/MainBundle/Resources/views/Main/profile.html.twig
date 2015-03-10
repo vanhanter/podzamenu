@@ -1,0 +1,27 @@
+{% extends 'PodzamenuMainBundle::layout.html.twig' %}
+
+{% block body %}
+
+<div class="start_page_1">
+    {% if users|length > 0 and users.public == 1 %}
+        <div style="margin-top: 30px;">
+            <div style="margin-bottom: 5px;">
+                <span style="color: green; font-weight: bold;">{{ users.username }}</span>
+            </div>
+
+            {% if posts is defined %}
+                {% for value2 in posts %}
+                    <div style="margin-bottom: 20px;">
+                        <span>{{ value2.date|date("d.m.Y") }}</span><br/>
+                        <span>{{ value2.label|capitalize }}</span><br/>
+                        <p>{{ value2.message }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    {% else %}
+        Пользователь не обнаружен или профиль закрыт
+    {% endif %}
+</div>
+
+{% endblock %}

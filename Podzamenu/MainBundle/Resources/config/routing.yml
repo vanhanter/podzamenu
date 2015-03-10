@@ -1,0 +1,35 @@
+
+profile:
+    pattern:  /profile/{data}
+    defaults: { _controller: PodzamenuMainBundle:Main:profile }
+    requirements:
+      data: \d+
+
+confirm_email:
+    pattern: /confirm-email/{data}
+    defaults: { _controller: PodzamenuMainBundle:Security:confirm_email }
+
+test2:
+    pattern: /test2
+    defaults: { _controller: PodzamenuMainBundle:Main:test2 }
+
+private_area:
+    pattern: /private-area
+    defaults: { _controller: PodzamenuMainBundle:Security:private_area }
+
+registration:
+    pattern: /registration/{data}
+    defaults: { _controller: PodzamenuMainBundle:Security:registration, data: none }
+
+search:
+    pattern:  /search
+    defaults: { _controller: PodzamenuMainBundle:Main:search }
+
+error_request:
+    pattern: /{data}
+    defaults: { _controller: PodzamenuMainBundle:Main:start_page }
+
+start_page:
+    pattern:  /
+    defaults: { _controller: PodzamenuMainBundle:Main:start_page }
+

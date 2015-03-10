@@ -1,0 +1,12 @@
+<div style="width: 1000px;  margin: auto; text-align: right;">
+    {% if user_name %}
+        <span style="margin: 0; color: #ff0000; font-weight: bold;" username>{{ user_name|upper }}</span>
+        &nbsp;&nbsp;
+        <a href="/private-area" style="color: #ff0000; text-decoration: underline; cursor: pointer; font-weight: bold;">Личный кабинет</a>
+        <a href="/logout" style="color: #ff0000; text-decoration: underline; cursor: pointer; font-weight: bold;">Выход</a>
+    {% else %}
+        <a style="color: #000000; text-decoration: underline; cursor: pointer;" href="/login">Войти</a>
+        &nbsp;&nbsp;
+        <a style="color: #000000; text-decoration: underline; cursor: pointer;" href="/registration">Регистрация</a>
+    {% endif %}
+</div>
